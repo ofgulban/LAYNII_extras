@@ -1,4 +1,4 @@
-"""Reimplementation of layer smoothing from LAYNII
+"""Rudimentary reimplementation of layer smoothing from LAYNII
 
 Reference
 ---------

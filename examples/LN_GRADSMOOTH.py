@@ -1,4 +1,4 @@
-"""Reimplementation of gradient based smoothing from LAYNII
+"""Rudimentary reimplementation of gradient based smoothing from LAYNII
 
 Reference
 ---------
