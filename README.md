@@ -1,5 +1,5 @@
 # PyLAYNII (work in progress...)
-Just a project for self-education. Looking at [LAYNII](https://github.com/layerfMRI/LAYNII) and reimplementing some parts of it in python.
+Just a project for self-education. Looking at [LAYNII](https://github.com/layerfMRI/LAYNII) code and implementing some parts of it in python. I am not aiming for direct translation but I am aiming for getting similar results by implementing the main concepts.
 
 ## TODO
 - [x] LN_LAYER_SMOOTH
