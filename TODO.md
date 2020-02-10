@@ -1,4 +1,6 @@
 # Conversion list
 - [x] LN_LAYER_SMOOTH
 - [x] LN_DIRECTSMOOTH
+- [ ] LN_3DGROW_LAYERS
+- [ ] LN_BOCO
 - [ ] LN_GRADSMOOTH
