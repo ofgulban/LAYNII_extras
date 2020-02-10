@@ -21,8 +21,9 @@ def iterative_gauss_n(sigma_small, sigma_large):
 NII1 = "/home/faruk/Git/PyLAYNII/sample_data/activity_map_example.nii.gz"
 NII2 = "/home/faruk/Git/PyLAYNII/sample_data/equi_dist_layers.nii.gz"
 
-SIGMA = 20.  # Sigma of gaussian filter
-NR_ITER = iterative_gauss_n(sigma_small=4.0, sigma_large=SIGMA)
+SIGMA_LARGE = 20.  # Sigma of gaussian filter
+SIGMA_SMALL = 4.
+NR_ITER = iterative_gauss_n(SIGMA_SMALL, SIGMA_LARGE)
 print("Nr. iterations is {}".format(NR_ITER))
 # =============================================================================
 # Load data
@@ -38,18 +39,19 @@ basename = NII1.split(os.extsep, 1)[0]
 # =============================================================================
 # Iterative masked Gaussian filter
 for i in range(NR_ITER):
+    print("Iteration: {}".format(i))
     data_new = np.zeros(dims)
     for l in layers:
         idx_nonzero = data_layers == l
         mask = (idx_nonzero).astype("float")
-        data_smooth = gaussian_filter(data * mask, sigma=SIGMA)
-        mask_smooth = gaussian_filter(mask, sigma=SIGMA)
+        data_smooth = gaussian_filter(data * mask, sigma=SIGMA_SMALL)
+        mask_smooth = gaussian_filter(mask, sigma=SIGMA_SMALL)
         data_new[idx_nonzero] += data_smooth[idx_nonzero] / mask_smooth[idx_nonzero]
     data = np.copy(data_new)
 
 # Save
 out = nb.Nifti1Image(data, affine=nii.affine)
 nb.save(out, "{}_layer_smooth_sigma{}_iter{}.nii.gz".format(
-    basename, int(SIGMA), int(NR_ITER)))
+    basename, int(SIGMA_LARGE), int(NR_ITER)))
 
 print("Finished.")
