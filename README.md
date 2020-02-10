@@ -1,11 +1,6 @@
 # PyLAYNII (work in progress...)
 Just a project for self-education. Looking at [LAYNII](https://github.com/layerfMRI/LAYNII) code and implementing some parts of it in python. I am not aiming for direct translation but I am aiming for getting similar results by implementing the main concepts.
 
-## TODO
-- [x] LN_LAYER_SMOOTH
-- [x] LN_DIRECTSMOOTH
-- [ ] LN_GRADSMOOTH
-
 ## Dependencies
 
 **[Python 3](https://www.python.org/)**
@@ -17,6 +12,11 @@ Just a project for self-education. Looking at [LAYNII](https://github.com/layerf
 | [NiBabel](http://nipy.org/nibabel/)                     | 3.0.0          |
 
 
-## License
+## Installation
+TODO
 
+## Getting started
+TODO
+
+## License
 The project is licensed under [BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause).
