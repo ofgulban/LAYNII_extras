@@ -22,6 +22,6 @@ setup(name='pylaynii',
       author='Omer Faruk Gulban',
       author_email='faruk.gulban@maastrichtuniversity.nl',
       license='BSD-3-clause',
-      packages=['compoda'],
+      packages=['pylaynii'],
       install_requires=['numpy', 'scipy', 'nibabel'],
       zip_safe=False)
