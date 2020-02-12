@@ -1,5 +1,7 @@
 # PyLAYNII (work in progress...)
-Just a project for self-education. Looking at [LAYNII](https://github.com/layerfMRI/LAYNII) code and implementing some parts of it in python. I am not aiming for direct translation but I am aiming for getting similar results by implementing the main concepts.
+Just a project for self-education. Looking at [LAYNII](https://github.com/layerfMRI/LAYNII) source code and implementing some parts of it in python. I am not aiming for direct translation but I am aiming for getting similar results by implementing the main concepts. I am also going to keep the command line interface and naming conventions as similar as possible.
+
+If you think this project is redundant while [LAYNII](https://github.com/layerfMRI/LAYNII) exists, it is. I do it because I can. Also, I think the much shorter python code (compared to c++) can be a good educational material in the future.
 
 ## Dependencies
 
@@ -16,7 +18,10 @@ Just a project for self-education. Looking at [LAYNII](https://github.com/layerf
 TODO
 
 ## Getting started
-TODO
+1. Try the command line interface:
+```
+PYLN_LAYER_SMOOTH -h
+```
 
 ## License
 The project is licensed under [BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause).
