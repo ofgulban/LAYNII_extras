@@ -1,4 +1,4 @@
-"""Compoda setup.
+"""PyLAYNII setup.
 
 To install, using the command line do:
     pip install -e /path/to/PyLAYNII
@@ -11,17 +11,18 @@ python setup.py sdist upload -r pypi
 
 from setuptools import setup
 
-VERSION = '0.0.0'
-
-setup(name='pylaynii',
-      version=VERSION,
-      description='LAYNII in python.',
-      url='https://github.com/ofgulban/compoda',
-      download_url=('https://github.com/ofgulban/pylaynii/archive/'
-                    + VERSION + '.tar.gz'),
-      author='Omer Faruk Gulban',
-      author_email='faruk.gulban@maastrichtuniversity.nl',
-      license='BSD-3-clause',
-      packages=['pylaynii'],
-      install_requires=['numpy', 'scipy', 'nibabel'],
-      zip_safe=False)
+setup(
+    name='pylaynii',
+    description='Layer-MRI analysis in python.',
+    version="0.0.0",
+    url='https://github.com/ofgulban/PyLAYNII',
+    author='Omer Faruk Gulban',
+    license='BSD-3-clause',
+    packages=['pylaynii'],
+    install_requires=['numpy', 'scipy', 'nibabel'],
+    zip_safe=True,
+    entry_points={
+    "console_scripts": [
+        "PYLN_LAYER_SMOOTH = pylaynii.PYLN_LAYER_SMOOTH:main",
+        ]}
+    )
