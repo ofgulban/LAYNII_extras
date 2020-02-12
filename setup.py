@@ -23,7 +23,7 @@ setup(
     name='pylaynii',
     description='Layer-MRI analysis in python.',
     license='BSD-3-clause',
-    version="0.0.0",
+    version="0.1.0",
     url='https://github.com/ofgulban/PyLAYNII',
     author='Omer Faruk Gulban',
     author_email='faruk.gulban@maastrichtuniversity.nl',
