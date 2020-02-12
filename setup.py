@@ -7,10 +7,14 @@ To install for development, using the commandline do:
 
 Notes for PyPI:
 ===============
-1. cd to repository folder
-2. ```python setup.py sdist upload -r pypitest```
-3. Check everything looks fine on the test server.
-4. ```python setup.py sdist upload -r pypi```
+1. Prepare for pypi:
+```python setup.py sdist```
+2. Upload to pypi test server to check:
+```twine upload --repository-url https://test.pypi.org/legacy/ dist/*```
+3. Use testpypi with pip:
+```pip install --index-url https://test.pypi.org/simple/ pylaynii```
+4. Upload to pypi:
+```twine upload dist/*```
 """
 
 from setuptools import setup
@@ -22,6 +26,7 @@ setup(
     version="0.0.0",
     url='https://github.com/ofgulban/PyLAYNII',
     author='Omer Faruk Gulban',
+    author_email='faruk.gulban@maastrichtuniversity.nl',
     packages=['pylaynii'],
     install_requires=['numpy', 'scipy', 'nibabel'],
     keywords=["mri", "nifti", "layer"],
@@ -29,5 +34,5 @@ setup(
     entry_points={
     "console_scripts": [
         "PYLN_LAYER_SMOOTH = pylaynii.PYLN_LAYER_SMOOTH:main",
-        ]}
+        ]},
     )

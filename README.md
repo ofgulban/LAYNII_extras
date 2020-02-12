@@ -14,7 +14,9 @@ If you think this project is redundant while [LAYNII](https://github.com/layerfM
 
 
 ## Installation
-TODO
+```
+pip install pylaynii
+```
 
 ## Getting started
 1. Try the command line interface:
