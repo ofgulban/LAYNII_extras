@@ -1,28 +1,15 @@
-# PyLAYNII (work in progress...)
-Just a project for self-education. Looking at [LAYNII](https://github.com/layerfMRI/LAYNII) source code and implementing some parts of it in python. I am not aiming for direct translation but I am aiming for getting similar results by reimplementing the main concepts. I am going to keep the command line interface and naming conventions as similar as possible for people who are already using [LAYNII](https://github.com/layerfMRI/LAYNII).
+# LAYNII_extras (work in progress...)
 
-If you think this project is redundant while [LAYNII](https://github.com/layerfMRI/LAYNII) exists, it is. I do it because I can. Also, I think the much shorter python code (compared to C++) can be a good educational material in the future.
+Here are some extra scripts that we use in combination with [LAYNII](https://github.com/layerfMRI/LAYNII).
 
-## Dependencies
-**[Python 3](https://www.python.org/)**
+These are mostly Python or Bash scripts. We do not commit to maintain these rigorously but collecting them here to benefit our users.
 
-| Package                                                 | Tested version |
-|---------------------------------------------------------|----------------|
-| [NumPy](http://www.numpy.org/)                          | 1.17.3         |
-| [Scipy](https://www.scipy.org/)                         | 1.4.0          |
-| [NiBabel](http://nipy.org/nibabel/)                     | 3.0.0          |
-
-
-## Installation
+### For using `image_to_nifti.py`
+If you have Python installed on your PC, do:
 ```
-pip install pylaynii
+pip install numpy scipy nibabel opencv
 ```
-
-## Getting started
-1. Try the command line interface:
+or if you are using conda (anaconda or miniconda):
 ```
-PYLN_LAYER_SMOOTH -h
+conda install numpy scipy nibabel opencv
 ```
-
-## License
-The project is licensed under [BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause).
