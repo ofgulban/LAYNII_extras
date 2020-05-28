@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# This script is updated for LAYNII VERSION v1.5.6
 
 echo "It starts now:    I expect two files Not_Nulled_Basis_a.nii and Nulled_Basis_b.nii that are motion corrected with SPM"
 
@@ -80,7 +81,7 @@ LN_BOCO -Nulled Nulled_intemp.nii -BOLD BOLD_intemp.nii
 3drefit -TR 1 BOLD_intemp.nii
 3drefit -TR 1 VASO_LN.nii
 
-LN_MP2RAGE_DNOISE -INV1 mean_nulled.nii -INV2 mean_notnulled.nii -UNI T1_weighted.nii -beta 5
+LN_MP2RAGE_DNOISE -INV1 mean_nulled.nii -INV2 mean_notnulled.nii -UNI T1_weighted.nii -beta 5 -output T1w_denoised.nii
 
 start_bias_field.sh dnoised_T1_weighted.nii
 

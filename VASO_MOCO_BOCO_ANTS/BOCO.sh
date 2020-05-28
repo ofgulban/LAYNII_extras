@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+#### Updated for LAYNI VERSION v1.5.6
 ##################################################
 #### Temporal upsampling so VASO matches BOLD ####
 ##################################################
@@ -14,7 +14,7 @@ NumVol=`3dinfo -nv Nulled_intemp.nii`
 3dTcat -overwrite -prefix Nulled_intemp.nii Nulled_intemp.nii'[0]' Nulled_intemp.nii'[0..'`expr $NumVol - 2`']' 
 
 echo "BOLD correction happens now"
-LN_BOCO -Nulled Nulled_intemp.nii -BOLD BOLD_intemp.nii
+LN_BOCO -Nulled Nulled_intemp.nii -BOLD BOLD_intemp.nii -output LN_VASO.nii 
 
 echo "I am correcting for the proper TR in the header"
 3drefit -TR 1.5 BOLD_intemp.nii
