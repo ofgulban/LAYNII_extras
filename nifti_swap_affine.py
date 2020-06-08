@@ -1,9 +1,12 @@
 import os
 import nibabel as nb
 
-nii_source = "/home/faruk/gdrive/data/toy_models/laynii_tests/copy_geom_example/another_exampls/180223_BOLD_rest.nii"
-nii_target = "/home/faruk/gdrive/data/toy_models/laynii_tests/copy_geom_example/another_exampls/180223_T1_rest.nii"
+# This image's position information will be manipulated
+nii_source = "/path/to/BOLD_rest.nii"
+# This image's position information will be copied
+nii_target = "/path/to/T1_rest.nii"
 
+# -----------------------------------------------------------------------------
 # Load nifti images
 nii1 = nb.load(nii_source)
 nii2 = nb.load(nii_target)
