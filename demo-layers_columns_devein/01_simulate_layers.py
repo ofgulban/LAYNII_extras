@@ -14,8 +14,8 @@ data = nii.get_fdata()
 # Make single layer in the middle
 chunk1 = data[0:50, :, :]  # cut halfway of M
 idx0 = chunk1 == 0
-idx1 = chunk1 > 0.40
-idx2 = chunk1 < 0.60
+idx1 = chunk1 > 0.45
+idx2 = chunk1 < 0.55
 
 chunk1[: ,:, :] = 100
 chunk1[idx1 * idx2] = 105
@@ -24,10 +24,10 @@ chunk1[idx0] = 0
 # Make double layers
 chunk2 = data[50:, :, :]  # cut the other half of M
 idx0 = chunk2 == 0
-idx1 = chunk2 > 0.20
-idx2 = chunk2 < 0.40
-idx3 = chunk2 > 0.60
-idx4 = chunk2 < 0.80
+idx1 = chunk2 > 0.25
+idx2 = chunk2 < 0.35
+idx3 = chunk2 > 0.65
+idx4 = chunk2 < 0.75
 
 chunk2[:, :, :] = 100
 chunk2[idx1 * idx2] = 105
@@ -44,7 +44,7 @@ nb.save(out, "/home/faruk/gdrive/LAYNII/demo_big3/M_brain_simulated_layers.nii.g
 
 # With Gaussian noise
 idx = data != 0
-noise = np.random.normal(loc=0, scale=2, size=np.sum(idx))
+noise = np.random.normal(loc=0, scale=1, size=np.sum(idx))
 data[idx] += noise
 out = nb.Nifti1Image(data, affine=nii.affine)
 nb.save(out, "/home/faruk/gdrive/LAYNII/demo_big3/M_brain_simulated_layers_noised.nii.gz")
