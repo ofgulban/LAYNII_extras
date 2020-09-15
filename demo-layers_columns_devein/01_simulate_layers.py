@@ -39,14 +39,15 @@ data[0:50, :, :] = chunk1
 data[50:, :, :] = chunk2
 
 # Save output
+basename, ext = FILE.split(os.extsep, 1)
 out = nb.Nifti1Image(data, affine=nii.affine)
-nb.save(out, "/home/faruk/gdrive/LAYNII/demo_big3/M_brain_simulated_layers.nii.gz")
+nb.save(out, "{}_simulated_layers.{}".format(basename, ext))
 
 # Add Gaussian noise
 idx = data != 0
 noise = np.random.normal(loc=0, scale=1, size=np.sum(idx))
 data[idx] += noise
 out = nb.Nifti1Image(data, affine=nii.affine)
-nb.save(out, "/home/faruk/gdrive/LAYNII/demo_big3/M_brain_simulated_layers_noised.nii.gz")
+nb.save(out, "{}_simulated_layers_noised.{}".format(basename, ext))
 
 print("Finished.")
