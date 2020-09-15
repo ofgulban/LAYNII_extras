@@ -42,7 +42,7 @@ data[50:, :, :] = chunk2
 out = nb.Nifti1Image(data, affine=nii.affine)
 nb.save(out, "/home/faruk/gdrive/LAYNII/demo_big3/M_brain_simulated_layers.nii.gz")
 
-# With Gaussian noise
+# Add Gaussian noise
 idx = data != 0
 noise = np.random.normal(loc=0, scale=1, size=np.sum(idx))
 data[idx] += noise

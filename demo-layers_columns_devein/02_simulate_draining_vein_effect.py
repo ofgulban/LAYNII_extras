@@ -24,7 +24,7 @@ data_new = data * vein_multiplier
 out = nb.Nifti1Image(data_new, affine=nii1.affine)
 nb.save(out, "/home/faruk/gdrive/LAYNII/demo_big3/M_brain_draining_veins.nii.gz")
 
-# With Gaussian noise
+# Add Gaussian noise
 idx = data_new != 0
 noise = np.random.normal(loc=0, scale=2, size=np.sum(idx))
 data_new[idx] += noise

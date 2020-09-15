@@ -41,6 +41,7 @@ fig, (ax1, ax2) = plt.subplots(1, 2)
 fig.suptitle('Layer profiles in two alternative ways')
 
 for j in idx_columns:
+    # Take voxels of a single column
     idx = colums == j
     data_roi = data[idx]
     norm_depth_roi = norm_depth[idx]
