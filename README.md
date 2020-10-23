@@ -1,6 +1,6 @@
-# LAYNII_extras (work in progress...)
+# LayNii_extras (work in progress...)
 
-Here are some extra scripts that we use in combination with [LAYNII](https://github.com/layerfMRI/LAYNII).
+Here are some extra scripts that we use in combination with [LayNii](https://github.com/layerfMRI/LAYNII).
 
 These are mostly Python or Bash scripts. We do not commit to maintain these rigorously but collecting them here to benefit our users.
 
