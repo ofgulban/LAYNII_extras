@@ -25,4 +25,5 @@ data_out = zoom(data_in, DOWNSAMPLING_FACTOR, mode="nearest",
 data_out = data_out[::-1, ::-1].T
 # Save as Nifti
 img = nb.Nifti1Image(data_out, affine=np.eye(4))
-nb.save(img, "{}.nii.gz".format(os.path.splitext(PNG_FILE)[0]))
+basename, _ = PNG_FILE.split(os.extsep, 1)
+nb.save(img, "{}.nii.gz".format(basename))
