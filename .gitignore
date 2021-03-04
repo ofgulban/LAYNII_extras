@@ -130,3 +130,6 @@ dmypy.json
 
 # Sample data
 sample_data/
+
+# Mac stuff
+*.DS_Store
