@@ -18,18 +18,18 @@ def iterative_gauss_n(sigma_small, sigma_large):
 
 # =============================================================================
 # User defined parameters
-NII1 = "/home/faruk/Git/PyLAYNII/sample_data/activity_map_example.nii.gz"
-NII2 = "/home/faruk/Git/PyLAYNII/sample_data/equi_dist_layers.nii.gz"
+NII1 = "/home/faruk/data/DATA_MRI_NIFTI/derived/sub-05/T1_wholebrain/99_B0_angles/sub-05_ses-T2s_MP2RAGE_uni_segm_rim_reg_v06_rim_B0angdif.nii.gz"
+NII2 = "/home/faruk/data/DATA_MRI_NIFTI/derived/sub-05/T1_wholebrain/99_B0_angles/sub-05_ses-T2s_MP2RAGE_uni_segm_rim_reg_v06_rim_GM.nii.gz"
 
-SIGMA_LARGE = 20.  # Sigma of gaussian filter
-SIGMA_SMALL = 4.
+SIGMA_LARGE = 2  # Sigma of gaussian filter
+SIGMA_SMALL = 1
 NR_ITER = iterative_gauss_n(SIGMA_SMALL, SIGMA_LARGE)
 print("Nr. iterations is {}".format(NR_ITER))
 # =============================================================================
 # Load data
 nii = nb.load(NII1)
 data = nii.get_fdata()
-data_layers = nb.load(NII2).get_fdata()
+data_layers = np.asarray((nb.load(NII2).dataobj))
 
 # Derive parameters
 dims = data.shape
