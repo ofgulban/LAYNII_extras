@@ -21,7 +21,7 @@ if not os.path.exists(OUTDIR):
 
 
 # Load nifti
-nii1 = nb.load(REF)
+nii1 = nb.load(B0_REF)
 data = np.asarray(nii1.dataobj)
 idx = data != 0
 dims = nii1.shape
@@ -35,7 +35,7 @@ new = nb.affines.apply_affine(aff, ref)
 new = new[1, :] - new[0, :]
 new /= np.linalg.norm(new)
 
-# Prepare 4D nifti
+# Prepare 4D nifti (3 elements on 4th axis determine 3D vector per voxel)
 vec_B0 = np.zeros(dims + (3,))
 vec_B0[..., 0] = new[0]
 vec_B0[..., 1] = new[1]
@@ -43,7 +43,7 @@ vec_B0[..., 2] = new[2]
 vec_B0[~idx, :] = 0
 
 # Save
-filename = os.path.basename(REF)
+filename = os.path.basename(B0_REF)
 basename, ext = filename.split(os.extsep, 1)
 outname = os.path.join(OUTDIR, "{}_B0vector.{}".format(basename, ext))
 img = nb.Nifti1Image(vec_B0, affine=nii1.affine, header=nii1.header)
@@ -54,15 +54,17 @@ nb.save(img, outname)
 nii2 = nb.load(STREAMLINES)
 vec_local = np.asarray(nii2.dataobj)
 
-# Angular difference
-term1 = np.sum(vec_B0 ** 2., axis=-1)
-term2 = np.sum(vec_local ** 2., axis=-1)
+# Compute angular difference between two 3D vectors at every voxel.
+term1 = np.sqrt(np.sum(vec_B0**2., axis=-1))
+term2 = np.sqrt(np.sum(vec_local**2., axis=-1))
 temp_dot = np.sum(vec_B0 * vec_local, axis=-1)
-temp_angle = np.arccos(temp_dot / np.sqrt(term1 * term2))
-temp_angle = temp_angle * 180 / np.pi;
+temp_angle = np.arccos(temp_dot / term1 * term2)
+
+# Convert radians to degrees
+temp_angle = temp_angle * 180 / np.pi
+
 temp_angle[~idx] = 0
 temp_angle[np.isnan(temp_angle)] = 0
-temp_angle[idx] = 90 - np.abs(temp_angle[idx] - 90)
 
 # Save
 filename = os.path.basename(STREAMLINES)
