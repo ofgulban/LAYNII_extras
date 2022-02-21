@@ -58,7 +58,7 @@ vec_local = np.asarray(nii2.dataobj)
 term1 = np.sqrt(np.sum(vec_B0**2., axis=-1))
 term2 = np.sqrt(np.sum(vec_local**2., axis=-1))
 temp_dot = np.sum(vec_B0 * vec_local, axis=-1)
-temp_angle = np.arccos(temp_dot / term1 * term2)
+temp_angle = np.arccos(temp_dot / (term1 * term2))
 
 # Convert radians to degrees
 temp_angle = temp_angle * 180 / np.pi
