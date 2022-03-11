@@ -3,8 +3,7 @@
 import os
 import nibabel as nb
 import numpy as np
-from scipy.ndimage import (morphology, generate_binary_structure,
-                           binary_propagation)
+from scipy.ndimage import morphology, generate_binary_structure
 
 INPUT = "/home/faruk/data2/nsddata/anat/aseg_0pt5.nii.gz"
 
