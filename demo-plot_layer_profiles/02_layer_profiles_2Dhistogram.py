@@ -5,13 +5,13 @@ import nibabel as nb
 import matplotlib.pyplot as plt
 
 # Cortical depth file. This can be metric_equidist or metric_equivol
-NII_METRIC = "/Users/faruk/data/video/new/04-plot_layer_profile/segmentation_rim-05_polished_metric_equivol.nii.gz"
+NII_METRIC = "/Users/faruk/data/video-scottlee/aseg_rim_metric_equidist.nii.gz"
 
 # Region-of-interest (ROI) mask
-NII_ROI = "/Users/faruk/data/video/new/04-plot_layer_profile/segmentation_rim-05_polished_perimeter_chunk.nii.gz"
+NII_ROI = "/Users/faruk/data/video-scottlee/rFFA_FWE05_resliced.nii.gz"
 
 # Scalar map, this can be your fMRI activation maps
-NII_SCALAR = "/Users/faruk/data/video/new/04-plot_layer_profile/stats_task_unwarp_3X_NN.nii.gz"
+NII_SCALAR = "/Users/faruk/data/video-scottlee/con_002_resliced.nii.gz"
 MAP_INDEX = 0
 
 TITLE = "2D Histogram\nEquivolume cortical depth layer profile"
@@ -26,7 +26,10 @@ nii_metric = nb.load(NII_METRIC)
 data_x = nii_metric.get_fdata()
 
 nii_scalar = nb.load(NII_SCALAR)
-data_y = nii_scalar.get_fdata()[..., MAP_INDEX]
+if len(nii_scalar.shape) > 3:
+	data_y = nii_scalar.get_fdata()[..., MAP_INDEX]
+else:
+	data_y = nii_scalar.get_fdata()
 
 # Only take the voxels within the ROI mask
 data_x = data_x[mask != 0]
