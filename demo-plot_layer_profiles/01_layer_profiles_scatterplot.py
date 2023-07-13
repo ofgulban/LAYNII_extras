@@ -8,13 +8,13 @@ import matplotlib.pyplot as plt
 NII_METRIC = "/Users/faruk/data/video-scottlee/aseg_rim_metric_equidist.nii.gz"
 
 # Region-of-interest (ROI) mask
-NII_ROI = "/Users/faruk/data/video-scottlee/rFFA_FWE05_resliced.nii.gz"
+NII_ROI = "/Users/faruk/data/video-scottlee/rFFA_FWE05_resliced_GMmasked.nii.gz"
 
 # Scalar map, this can be your fMRI activation maps
 NII_SCALAR = "/Users/faruk/data/video-scottlee/con_002_resliced.nii.gz"
 MAP_INDEX = 0
 
-TITLE = "Scatter plot\nEquivolume cortical depth layer profile"
+TITLE = "Scatter plot\nCortical depth layer profile"
 
 # =============================================================================
 # Load mask data first
