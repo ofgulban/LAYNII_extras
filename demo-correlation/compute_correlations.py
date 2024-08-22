@@ -6,9 +6,10 @@ import numpy as np
 from scipy.stats import pearsonr
 
 
-NII1 = "/Users/faruk/Documents/temp-LN2_PHASE_JOLT/Smagn.nii.gz"
-NII2 = "/Users/faruk/Documents/temp-LN2_PHASE_JOLT/Sphase_phase_jolt.nii.gz"
+NII1 = "/Users/faruk/data/proj-phase_jolt_fmri/temp/Smagn_bold.nii.gz"
+NII2 = "/Users/faruk/data/proj-phase_jolt_fmri/temp/Sphase_bold_phase_jump.nii.gz"
 
+SUFFIX = "r"
 
 # =============================================================================
 print("  Loading data...")
@@ -36,7 +37,7 @@ r = numerator / np.sqrt(denominator_x * denominator_y)
 # -----------------------------------------------------------------------------
 print("  Saving outputs...")
 basename, ext = NII2.split(os.extsep, 1)
-out = nb.Nifti1Image(r, affine=nii2.affine, header=nii2.header)
-nb.save(out, "{}_r.{}".format(basename, ext))
+out = nb.Nifti1Image(r, affine=nii1.affine, header=nii1.header)
+nb.save(out, "{}_{}.{}".format(basename, SUFFIX, ext))
 
 
