@@ -5,13 +5,13 @@ import nibabel as nb
 import matplotlib.pyplot as plt
 
 # Cortical depth file. This can be metric_equidist or metric_equivol
-NII_METRIC = "/Users/faruk/data/video-scottlee/aseg_rim_metric_equidist.nii.gz"
+NII_METRIC = "/Users/faruk/data/sub-99_rim_metric_equidist.nii.gz"
 
 # Region-of-interest (ROI) mask
-NII_ROI = "/Users/faruk/data/video-scottlee/rFFA_FWE05_resliced_GMmasked.nii.gz"
+NII_ROI = "/Users/faruk/data/sub-99_rim_ROI-V1.nii.gz"
 
 # Scalar map, this can be your fMRI activation maps
-NII_SCALAR = "/Users/faruk/data/video-scottlee/con_002_resliced.nii.gz"
+NII_SCALAR = "/Users/faruk/data/sub-99_stat_maps.nii.gz"
 MAP_INDEX = 0
 
 TITLE = "2D Histogram\nCortical depth layer profile"
